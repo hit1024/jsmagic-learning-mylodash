@@ -1,6 +1,7 @@
 const _ = {
     "once": once,
-    "memoize": memoize
+    "memoize": memoize,
+    "bind": bind
 };
 
 module.exports = _;
@@ -32,3 +33,11 @@ function memoize(func, spec) {
     return reserve
 }
 
+
+function bind(fn, context) {
+    function reserve() {
+        return fn.call(context)
+    } 
+
+    return reserve;
+}
